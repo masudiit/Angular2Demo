@@ -1,0 +1,58 @@
+﻿<table *ngIf="employee">
+    <thead>
+        <tr>
+            <th [attr.colspan]="colSpanNum">
+                Employee Details
+            </th>
+            
+        </tr>
+        <tr>
+            <th attr.colspan="{{colSpanNum}}">
+                Employee Details1
+            </th>
+            </tr>
+</thead>
+
+    <tbody>
+        <tr>
+            <td>Employee code</td>
+            <td>{{employee.code}}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{employee.name}}</td>
+        </tr>
+
+        <tr>
+            <td>Gender</td>
+            <td>{{employee.gender}}</td>
+        </tr>
+
+        <tr>
+            <td>Salary</td>
+            <td>{{employee.salary}}</td>
+        </tr>
+        <tr>
+            <td>Dob</td>
+            <td>{{employee.dateofbirth| date:'dd/MM/yyyy'| uppercase}}</td>
+        </tr>
+
+    </tbody>
+</table>
+
+<br/>
+
+<div *ngIf="!employee">
+    {{statusMessage}}
+</div>
+
+<div style="margin-top:5px">
+    <input type="button" class="btn btn-primary" (click)="onBackButtonClick()"  value="Back to Employee List" />
+</div>
+
+<div style="margin-top:5px" *ngIf="!subscription.closed">
+    <input type="button" class="btn btn-primary" (click)="onCancelButtonClick()" value="Cancel Request" />
+</div>
+
+<!--<button (click)="toggleDetails()">
+ {{showDetails ? 'Hide':'Show'}} Details</button>-->
